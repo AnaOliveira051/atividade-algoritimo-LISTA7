@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Pilotos</title>
+</head>
+<body>
+    
+    Informe a altura minima desejada: <input type="text" id="input_alturaMin"><br>
+    Informe a altura maxima desejada: <input type="text" id="input_alturaMax"><br>
+    <br><br>
+
+    Qual o nome do piloto: <input type="text" id="input_nomePiloto"><br>
+    Qual a altura do piloto: <input type="text" id="input_alturaPiloto"><br>
+
+    <br><br>
+    <button onclick="verificar()">Verificar Pilotos</button>
+
+    <br><br>
+    <div id="msg_confirma"></div>
+    
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var alturaMin = Number(input_alturaMin.value);
+        var alturaMax = Number(input_alturaMax.value);
+        var nome = input_nomePiloto.value;
+        var altura = Number(input_alturaPiloto.value);
+
+        if (alturaMin > 1 && alturaMax > alturaMin) {
+            if (altura >= alturaMin && altura <= alturaMax) {
+                msg_confirma.innerHTML += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto <br><br>`;
+            }else{
+                msg_confirma.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos <br><br>`;
+            }
+        }else{
+            msg_confirma.innerHTML=`Numeros informados inválidos, por favor digite novamente`;
+        }
+    }
+</script>

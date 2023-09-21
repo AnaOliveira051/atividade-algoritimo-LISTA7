@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Cartão fidelidade Metro</title>
+</head>
+<body>
+    Quantos bilhetes deseja comprar? <input type="text" id="input_qtdBilhete"><br>
+
+    <br>
+    <button onclick="comprar()">Comprar</button>
+    <br><br>
+
+    <div id="msg_compra"></div>
+</body>
+</html>
+
+<script>
+    function comprar(){
+        var qtdBilhete = Number(input_qtdBilhete.value);
+        var totalCompra = 4.40 * qtdBilhete;
+
+        if(qtdBilhete >= 8 && qtdBilhete <=50){
+
+            if (qtdBilhete >=8 && qtdBilhete <=19) {
+                totalCompra -= totalCompra * 0.03;
+                
+            }else if (qtdBilhete >=20 && qtdBilhete <=49) {
+                totalCompra -= totalCompra * 0.05;
+                
+            }else{
+                totalCompra -= totalCompra * 0.07;
+            }
+
+            msg_compra.innerHTML = `Total a pagar: R$${totalCompra}`;
+
+        }else{
+            msg_compra.innerHTML = `Quantidade inválida para o Fidelidade!<br><br>
+            Total a pagar: R$${totalCompra}`;
+        }
+    } 
+</script>
